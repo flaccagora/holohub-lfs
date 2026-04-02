@@ -9,10 +9,10 @@ apptainer build holohub-surgical-scene-recon.sif holohub-surgical-scene-recon:la
 Modify path to holohub and hf_cache as needed
 
 ```shell
-singularity exec --nv --cleanenv
---bind $(pwd):/workspace/holohub
---bind $(HF_HOME):/root/.cache/huggingface
---pwd /workspace/holohub
-holohub.sif
+singularity exec --nv --cleanenv  \
+--bind $(pwd):/workspace/holohub \
+--bind $(HF_HOME):/root/.cache/huggingface \
+--pwd /workspace/holohub \
+holohub.sif \
 ./holohub run surgical_scene_recon verify_train --local --language python --dryrun --verbose
 ```
