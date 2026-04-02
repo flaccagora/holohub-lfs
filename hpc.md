@@ -1,5 +1,6 @@
 # HPC friendly running of Holohub
 ## convert docker image to apptainer image
+on local machine
 ```shell
 apptainer build holohub-surgical-scene-recon.sif holohub-surgical-scene-recon:latest
 ```
@@ -8,10 +9,10 @@ apptainer build holohub-surgical-scene-recon.sif holohub-surgical-scene-recon:la
 Modify path to holohub and hf_cache as needed
 
 ```shell
-apptainer exec --nv --cleanenv
---bind /path/to/holohub:/workspace/holohub
---bind /scratch/$USER/hf_cache:/root/.cache/huggingface
+singularity exec --nv --cleanenv
+--bind $(pwd):/workspace/holohub
+--bind $(HF_HOME):/root/.cache/huggingface
 --pwd /workspace/holohub
-holohub-surgical-scene-recon.sif
+holohub.sif
 ./holohub run surgical_scene_recon verify_train --local --language python --dryrun --verbose
 ```
