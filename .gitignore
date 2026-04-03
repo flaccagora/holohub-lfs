@@ -77,3 +77,6 @@ rti_license.dat
 
 # Streamlit web GUI
 .streamlit/
+
+# Singularity container
+*.sif

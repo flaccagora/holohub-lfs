@@ -47,7 +47,7 @@ then:
 
 ### Rendering possible on local machine only
 o render on local machine, scp the output files from cluster to local machine and run
-`scp leonardo:/leonardo_work/IscrC_FLAC/holohub/build/surgical_scene_recon/applications/surgical_scene_recon/output/phase4_training/trained_model ~/Desktop/holohub_output/fine_best_psnr.pt`
+`scp -r leonardo:/leonardo_work/IscrC_FLAC/holohub/build/surgical_scene_recon/applications/surgical_scene_recon/output/ ~/Desktop/`
 
 then run on workstation with gpu:
-`./holohub run surgical_scene_recon render --language python --model-path ~/Desktop/holohub_output/fine_best_psnr.pt`
+`./holohub run surgical_scene_recon render --language python`
