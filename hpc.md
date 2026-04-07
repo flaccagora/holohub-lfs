@@ -49,5 +49,7 @@ then:
 o render on local machine, scp the output files from cluster to local machine and run
 `scp -r leonardo:/leonardo_work/IscrC_FLAC/holohub/build/surgical_scene_recon/applications/surgical_scene_recon/output/ ~/Desktop/`
 
+`scp -r ~/Desktop/output matteo@172.28.107.111:/home/matteo/holohub/build/surgical_scene_recon/applications/surgical_scene_recon/`
+
 then run on workstation with gpu:
 `./holohub run surgical_scene_recon render --language python`
