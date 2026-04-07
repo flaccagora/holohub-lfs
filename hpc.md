@@ -42,7 +42,8 @@ to work in interactive container
 `singularity shell --nv --cleanenv  --bind $(pwd):/workspace/holohub --bind $HF_HOME:/root/.cache/huggingface --pwd /workspace/holohub holohub.sif /bin/bash/ `
 
 then:
-`./holohub run surgical_scene_recon verify_train --local`
+`./holohub run surgical_scene_recon verify_train --local `
+        --output-dir /workspace/output
 
 
 ### Rendering possible on local machine only
