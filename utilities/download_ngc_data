@@ -398,7 +398,7 @@ if [ "${download_command}" == "gdown" ]; then
     if [[ ${url} == *"/folders/"* ]]; then
         # Download folder directly
         c_echo G "Downloading folder ${url} to ${download_dir_fullname}"
-        run_command gdown --folder "${url}" -O "${download_dir_fullname}" --remaining-ok
+          run_command gdown --folder "${url}" -O "${download_dir_fullname}" --continue
 
         if [ $? -ne 0 ]; then
           fatal R "Unable to download ${url} via gdown."
