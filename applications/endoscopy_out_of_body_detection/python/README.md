@@ -153,3 +153,42 @@ The application will create:
   1,0,0.972432
   1,0,0.902066
   ```
+
+## Batch processing sample surgical videos
+
+The Python app can also write per-frame probabilities with:
+
+```bash
+python main.py \
+  --config ../endoscopy_out_of_body_detection.yaml \
+  --data ../../../data/endoscopy_out_of_body_detection \
+  --video-dir <gxf_video_dir> \
+  --video-basename <gxf_basename> \
+  --output-csv <output.csv>
+```
+
+To process every MP4 under `data/endoscopy_out_of_body_detection/sample_videos`,
+convert each video to temporary GXF input, save per-frame probabilities, and write
+videos with out-of-body frames removed:
+
+```bash
+python process_sample_videos.py
+```
+
+Default outputs:
+
+- Per-video probability CSV files:
+  `data/endoscopy_out_of_body_detection/pipeline_output/probabilities/<case>/<case>.csv`
+- Combined probability CSV:
+  `data/endoscopy_out_of_body_detection/pipeline_output/all_probabilities.csv`
+- Processed videos:
+  `data/endoscopy_out_of_body_detection/processed_video/<case>/<case>.mp4`
+
+To rerun only the video filtering step from existing probability CSVs:
+
+```bash
+python remove_out_of_body_frames.py \
+  --input-dir ../../../data/endoscopy_out_of_body_detection/sample_videos \
+  --probability-dir ../../../data/endoscopy_out_of_body_detection/pipeline_output/probabilities \
+  --output-dir ../../../data/endoscopy_out_of_body_detection/processed_video
+```

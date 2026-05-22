@@ -175,9 +175,9 @@ def export_to_onnx(
                 "tracks",
                 "track_logits",
                 "visible_logits",
-                "step",
-                "rg_lru_state",
-                "conv1d_state",
+                "step_1",
+                "rg_lru_state_1",
+                "conv1d_state_1",
             ],
             # dynamo=True
         )

@@ -49,6 +49,7 @@ import holohub.tracks2endo4d_viz as viz_cpp
 from holohub.tapnext_inference import TapNextInferenceOp
 
 bytes_per_float32 = 4
+tapnext_pool_blocks = 12
 
 
 def get_bytes_tapnext():
@@ -198,7 +199,7 @@ class Tracks2Endo4DApp(Application):
                 self,
                 name="tapnext_fwd0_pool",
                 block_size=get_bytes_tapnext(),
-                num_blocks=48,
+                num_blocks=tapnext_pool_blocks,
                 storage_type=MemoryStorageType.DEVICE,
             ),
             cuda_stream_pool=cuda_stream_pool,
@@ -231,7 +232,7 @@ class Tracks2Endo4DApp(Application):
                 self,
                 name="tapnext_fwd1_pool",
                 block_size=get_bytes_tapnext(),
-                num_blocks=48,
+                num_blocks=tapnext_pool_blocks,
                 storage_type=MemoryStorageType.DEVICE,
             ),
             cuda_stream_pool=cuda_stream_pool,
@@ -278,7 +279,7 @@ class Tracks2Endo4DApp(Application):
                 self,
                 name="tapnext_bwd_pool",
                 block_size=get_bytes_tapnext(),
-                num_blocks=48,
+                num_blocks=tapnext_pool_blocks,
                 storage_type=MemoryStorageType.DEVICE,
             ),
             cuda_stream_pool=cuda_stream_pool,

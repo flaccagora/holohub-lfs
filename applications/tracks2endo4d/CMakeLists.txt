@@ -125,6 +125,11 @@ install(
 # --------------------------------------------------------------------------
 
 if(BUILD_TESTING)
+  add_test(NAME tracks2endo4d_onnx_export_names_test
+    COMMAND python3 -m unittest ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_onnx_export_names.py
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+  )
+
   # Run the application for a limited number of frames and verify the output
   add_test(NAME tracks2endo4d_python_test
     COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/tracks2endo4d_app.py

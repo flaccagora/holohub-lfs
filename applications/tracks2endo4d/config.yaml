@@ -18,7 +18,7 @@ extensions:
   - lib/gxf_extensions/libgxf_tapnext_inference.so
 
 replayer:
-  basename: "colonoscope_0001_short"
+  basename: "sample_video"
   frame_rate: 30
   repeat: false
   realtime: false

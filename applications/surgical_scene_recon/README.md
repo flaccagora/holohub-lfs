@@ -154,6 +154,26 @@ mkdir -p data/surgical_scene_recon/frames
 cp /path/to/your/*.png data/surgical_scene_recon/frames/
 ```
 
+### Converting `sample_video.mp4`
+
+If you have `sample_video.mp4` in the HoloHub repo root, convert it into the required frame directory with:
+
+```bash
+python3 applications/surgical_scene_recon/extract_frames.py
+```
+
+This writes PNG frames to `data/surgical_scene_recon/frames/` with names such as `frame-000000.color.png`, which is the default input path used by:
+
+```bash
+./holohub run surgical_scene_recon full
+```
+
+To convert a different video or replace an existing frame set:
+
+```bash
+python3 applications/surgical_scene_recon/extract_frames.py /path/to/video.mp4 --overwrite
+```
+
 ### Manual Download
 
 To skip automatic downloads and supply your own data manually:
